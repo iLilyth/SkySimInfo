@@ -1,0 +1,45 @@
+v1.1.0
+-performance/code changes vvv
+-Made text gui's less performance hungry
+-Changed all variables to snakecase
+-made onServer check seperate so it wasn't in every single module
+-removed some redundant code
+
+v1.0.6
+-Added Damage formatting 
+-Added fps counter
+
+v1.0.5
+-Added fallback to pickaxe timer (if it doesnt proc off of action bar, it procs off of broken blocks chat msg)
+-Added an option to create a title on rare drop
+-made a notification for when a rare drop is copied to clipboard
+-added the VWarden overlay to the index file so it should actually work now
+-made copychat copy insane rare drops as well as crazy rare drops
+-moved up f6 info display
+
+v1.0.4
+-Required vigilance (should have required it in the first place, left it out cuz dumb)
+
+v1.0.3
+-Fixed pathing
+-Fixed various references to dev version
+-Fixed config file issues
+-Added autocopy for Insane rare drops
+-added OnServer check
+-fixed pickaxe timer not working at all
+
+v1.0.2
+-Added toggles for everything
+-Added pickaxe ability timer
+-neatened up the code
+-changed instances of invalid file pathing
+
+v1.0.1
+-Patched souls counter for VCB stacking
+
+v1.0.0
+-Added bits counter for miner ring (per session and lifetime)
+-Added voidgloom counter (per session and lifetime)
+-Added f6 tracker (runs per session and bits made lifetime)
+-Added VWarden Helmet cooldown + buff tracker
+-Added VCB buff buff tracker + timer
