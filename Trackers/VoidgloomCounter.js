@@ -1,33 +1,24 @@
 import Settings from '../config.js'
 import {skySim} from '../Checks/onServer.js'
+
+let width = 0
+let height = 0
+const text = new Text('', width, height)
 let VoidgloomCount = 0
-let VoidgloomCountLifetime = Number(FileLib.read("SkySimInfoDev/Storage", "VoidgloomTracker.json"))
+let VoidgloomCountLifetime = Number(FileLib.read("SkySimInfo/Storage", "VoidgloomTracker.json"))
 
 register("chat", () => { 
     VoidgloomCount = VoidgloomCount + 1
     VoidgloomCountLifetime = VoidgloomCountLifetime + 1
-}).setChatCriteria("   » Talk to Maddox to claim your Enderman Slayer XP!")
-
-register("chat", () => {
-    FileLib.write("SkySimInfoDev/Storage", "VoidgloomTracker.json", VoidgloomCountLifetime)
+    FileLib.write("SkySimInfo/Storage", "VoidgloomTracker.json", VoidgloomCountLifetime)
 }).setChatCriteria("   » Talk to Maddox to claim your Enderman Slayer XP!")
 
 register("renderOverlay", () => {
     if (!skySim()) return
     if (!Settings.VoidgloomUtils) return
-    const width = (5)
-    const height = (180)
-    const text = new Text(`&cVoidgloom Bosses This Session: ${VoidgloomCount}`, width, height)
-    text.setShadow(true)
-    text.draw()
-})
-
-register("renderOverlay", () => {
-    if (!skySim()) return
-    if (!Settings.VoidgloomUtils) return
-    const width = (5)
-    const height = (190)
-    const text = new Text(`&cTotal Voidgloom Bosses: ${VoidgloomCountLifetime}`, width, height)
+    text.setX(5)
+    text.setY(180)
+    text.setString(`&cVoidgloom Bosses This Session: ${VoidgloomCount}\n&cTotal Voidgloom Bosses: ${VoidgloomCountLifetime}`)
     text.setShadow(true)
     text.draw()
 })

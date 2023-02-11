@@ -76,6 +76,13 @@ import {
         FormatDmg = true;
 
         @SwitchProperty({
+            name: "Remove 0 Damage Markers",
+            description: "Removes damage numbers that are equal to 0",
+            category: "?Visual",
+        })
+        RemoveZeros = true;
+
+        @SwitchProperty({
             name: "Ping Display",
             description: "Shows your ping",
             category: "?Visual",

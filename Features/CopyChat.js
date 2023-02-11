@@ -5,17 +5,8 @@ let insaneRareDrop = undefined
 
 const playSoundPitch = [1, 2, 3, 5, 8, 13]
 
-register("chat", (msg, event) => {
-    if (!skySim()) return
-    if (!Settings.AutoCopyRareDrops) return
-    if (msg.startsWith("CRAZY RARE DROP!")) {
-        ChatLib.command(`ct copy ${msg}`, true)
-    }
-}).setCriteria("${msg}")
-
-register("chat", (msg, event) => {
-    if (!skySim()) return
-    if (!Settings.AutoCopyRareDrops) return
+register("chat", (msg) => {
+    if (!skySim() || !Settings.AutoCopyRareDrops) return
     if (msg.startsWith("CRAZY RARE DROP!")) {
         rareDrop = String(msg)
         ChatLib.chat("&2Rare drop copied to clipboard!")
@@ -29,8 +20,7 @@ register("chat", (msg, event) => {
 }).setCriteria("${msg}")
 
 register("tick", () => {
-    if (!skySim()) return
-    if (!Settings.RareDropNotification) return
+    if (!skySim() || !Settings.RareDropNotification) return
     if (rareDrop) {
         let text = "";
         for (let i = 0; i < playSoundPitch.length; i++) {

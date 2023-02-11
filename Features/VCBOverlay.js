@@ -16,16 +16,14 @@ register("chat", (soulsAdd) => {
     VCBTimer = 60
 }).setCriteria("You crushed ${soulsAdd} souls and gain the following buff for the next 60s!")
 
-register("chat", (souls) => {
+register("chat", () => {
     if (!skySim()) return
     VCBToggle = false
     souls = 0
 }).setCriteria("Your Voidcrusher Buff is now deactivated!")
 
 register("renderOverlay", () => {
-    if (!skySim()) return
-    if (!Settings.VCBData) return
-
+    if (!skySim() || !Settings.VCBData) return
     text.setX(5)
     text.setY(240)
     text.setString((VCBToggle == true ? `&cVCB Buff active with ${souls} soul(s) for ${VCBTimer}s` : ""))
@@ -35,5 +33,7 @@ register("renderOverlay", () => {
 
 register("step", () => {
     if (!skySim()) return
-    if (VCBTimer != 0) VCBTimer--
+    if (VCBTimer != 0){
+        VCBTimer--
+    } 
 }).setFps(1)

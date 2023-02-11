@@ -13,28 +13,15 @@ register("chat", BitsMade => {
     if(!skySim()) return
     sessionRuns++
     bitsMadef6 = bitsMadef6 + Number(BitsMade)
-}).setChatCriteria("            +${BitsMade} Bits (Completion Reward)")
-
-register("chat", () => {
     FileLib.write("SkySimInfo/Storage", "bitsMadef6.json", bitsMadef6)
-}).setChatCriteria("            +${*} Bits (Completion Reward)")
+}).setChatCriteria("            +${BitsMade} Bits (Completion Reward)")
 
 register("renderOverlay", () => {
     if (!skySim()) return
     if (!Settings.f6Data) return
     text.setX(5)
     text.setY(200)
-    text.setString(`&6f6 Runs This Session: ${sessionRuns}`)
-    text.setShadow(true)
-    text.draw()
-})
-
-register("renderOverlay", () => {
-    if (!skySim()) return
-    if (!Settings.f6Data) return
-    text.setX(5)
-    text.setY(210)
-    text.setString(`&6Bits Made Total: ${bitsMadef6}`)
+    text.setString(`&6f6 Runs This Session: ${sessionRuns}\n&6Bits Made Total: ${bitsMadef6}`)
     text.setShadow(true)
     text.draw()
 })

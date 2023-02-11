@@ -5,10 +5,8 @@ let width = 0
 let height = 0
 const text = new Text('', width, height)
 
-
 register("renderOverlay", () => {
-    if (!skySim()) return
-    if (!Settings.pingCounter) return
+    if (!skySim() || !Settings.pingCounter) return
     const ping = Server.getPing()
     text.setX(5)
     text.setY(15)

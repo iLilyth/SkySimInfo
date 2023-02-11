@@ -1,0 +1,24 @@
+
+["?features"]
+	chat_copy = true
+	rare_drop_notification = true
+
+["?mining"]
+	pickobolus_timer = 25
+	pickaxe_ability_timer = true
+
+["?trackers"]
+	mining_bits_counter = true
+	f6_data_tracker = false
+	voidgloom_display = true
+
+["?voidglooms"]
+	vcb_display = true
+	vwarden_display = true
+
+["?visual"]
+	remove_0_damage_markers = true
+	fps_counter = true
+	ping_display = true
+	format_damage_numbers = true
+
