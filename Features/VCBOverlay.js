@@ -1,13 +1,15 @@
 import Settings from '../config.js'
 import {skySim} from '../Checks/onServer.js'
-
-let souls = 0
-let VCBToggle = false
-let VCBTimer = 0
+import {ScreenX} from '../Functions/locationFunction.js'
+import {ScreenY} from '../Functions/locationFunction.js'
 
 let width = 0
 let height = 0
 const text = new Text('', width, height)
+
+let souls = 0
+let VCBToggle = false
+let VCBTimer = 0
 
 register("chat", (soulsAdd) => {
     if (!skySim()) return
@@ -24,8 +26,8 @@ register("chat", () => {
 
 register("renderOverlay", () => {
     if (!skySim() || !Settings.VCBData) return
-    text.setX(5)
-    text.setY(240)
+    text.setX(Settings.VCBDataX*ScreenX())
+    text.setY(Settings.VCBDataY*ScreenY())
     text.setString((VCBToggle == true ? `&cVCB Buff active with ${souls} soul(s) for ${VCBTimer}s` : ""))
     text.setShadow(true)
     text.draw()

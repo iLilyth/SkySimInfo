@@ -1,13 +1,16 @@
 import Settings from '../config.js'
 import {skySim} from '../Checks/onServer.js'
+import {ScreenX} from '../Functions/locationFunction.js'
+import {ScreenY} from '../Functions/locationFunction.js'
+
+let width = 0
+let height = 0
+const text = new Text('', width, height)
 
 let VWardenToggle = false
 let VWardenHitsToggle = false
 let VSBTimer = 0
 let VSTimer = 0
-let width = 0
-let height = 0
-const text = new Text('', width, height)
 
 register("chat", () => {
     if (!skySim()) return
@@ -30,8 +33,8 @@ register("chat", () => {
 
 register("renderOverlay", () => {
     if (!skySim() || !Settings.VWardenData) return
-    text.setX(5)
-    text.setY(250)
+    text.setX(Settings.VWardenDataX*ScreenX())
+    text.setY(Settings.VWardenDataY*ScreenY())
     text.setString((VWardenHitsToggle == true ? `&cVoidgloom's Stronghold active for ${VSTimer}s` : ""))
     text.setShadow(true)
     text.draw()
@@ -39,8 +42,8 @@ register("renderOverlay", () => {
 
 register("renderOverlay", () => {
     if (!skySim() || !Settings.VWardenData) return
-    text.setX(5)
-    text.setY(250)
+    text.setX(Settings.VWardenDataX*ScreenX())
+    text.setY(Settings.VWardenDataY*ScreenY())
     text.setString((VWardenToggle == true ? `&cVoidgloom's Stronghold Buff active for ${VSBTimer}s` : ""))
     text.setShadow(true)
     text.draw()

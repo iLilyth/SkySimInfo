@@ -1,5 +1,7 @@
 import Settings from '../config.js'
 import {skySim} from '../Checks/onServer.js'
+import {ScreenX} from '../Functions/locationFunction.js'
+import {ScreenY} from '../Functions/locationFunction.js'
 
 let bitsCounter = 0
 let bitsCounterLifetime = Number(FileLib.read("SkySimInfo/Storage", "bitsCounterLifetime.json"))
@@ -17,8 +19,8 @@ register("chat", (BitsCounterAdd, event) => {
 register("renderOverlay", () => {
     if (!skySim()) return
     if (!Settings.MiningBitsCounter) return
-    text.setX(5)
-    text.setY(150)
+    text.setX(Settings.MiningBitsCounterX*ScreenX())
+    text.setY(Settings.MiningBitsCounterY*ScreenY())
     text.setString(`&6Bits This Session: ${bitsCounter}\n&6Bits Lifetime: ${bitsCounterLifetime}`)
     text.setShadow(true)
     text.draw() 

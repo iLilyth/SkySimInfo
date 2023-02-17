@@ -1,10 +1,14 @@
+v1.1.2
+-Changed damage formatting to actually have a B where there was a g
+-Added beacon alert
+-Made every. single. gui. element. moveable.
+
 v1.1.1
 -Changed damage formatting to be B,M,K formatting
 -Changed coloring for damage formatting
 -Added option to prevent 0 dmg nametags from rendering
 -Made VWarden display actually disable when it is off
 -Made vigilance a dependency again
-
 
 v1.1.0
 -performance/code changes vvv

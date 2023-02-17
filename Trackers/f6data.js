@@ -1,5 +1,7 @@
 import Settings from '../config.js'
 import {skySim} from '../Checks/onServer.js'
+import {ScreenX} from '../Functions/locationFunction.js'
+import {ScreenY} from '../Functions/locationFunction.js'
 
 let width = 0
 let height = 0
@@ -19,8 +21,8 @@ register("chat", BitsMade => {
 register("renderOverlay", () => {
     if (!skySim()) return
     if (!Settings.f6Data) return
-    text.setX(5)
-    text.setY(200)
+    text.setX(Settings.f6DataX*ScreenX())
+    text.setY(Settings.f6DataY*ScreenY())
     text.setString(`&6f6 Runs This Session: ${sessionRuns}\n&6Bits Made Total: ${bitsMadef6}`)
     text.setShadow(true)
     text.draw()

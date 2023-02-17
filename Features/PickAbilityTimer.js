@@ -1,5 +1,7 @@
 import Settings from '../config.js'
 import {skySim} from '../Checks/onServer.js'
+import {ScreenX} from '../Functions/locationFunction.js'
+import {ScreenY} from '../Functions/locationFunction.js'
 
 let width = 0
 let height = 0
@@ -15,8 +17,8 @@ register("chat", () => {
 
 register("renderOverlay", () => {
     if (!skySim() || !Settings.PickaxeAbilityTimer2) return
-    text.setX(5)
-    text.setY(170)
+    text.setX(Settings.PickaxeAbilityTimerX*ScreenX())
+    text.setY(Settings.PickaxeAbilityTimerY*ScreenY())
     text.setString(`&6Pickobolus Timer: ${pickAbilityTimerDisplay || "Ready"}`)
     text.setShadow(true)
     text.draw() 
