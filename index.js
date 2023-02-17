@@ -6,7 +6,6 @@ register("command", Settings.openGUI).setName("SkySimInfo").setAliases(["ssi"]);
 
 //checks
 import "./checks/onServer" 
-import "./Checks/userCheck"
 
 //features
 import "./features/pickAbilityTimer"

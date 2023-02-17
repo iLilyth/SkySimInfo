@@ -16,7 +16,7 @@ register("chat", (soulsAdd) => {
     VCBToggle = true
     souls = soulsAdd
     VCBTimer = 60
-}).setCriteria("You crushed ${soulsAdd} souls and gain the following buff for the next 60s!")
+}).setCriteria("You crushed ${soulsAdd} Souls and gain the following buff for the next 60s!")
 
 register("chat", () => {
     if (!skySim()) return

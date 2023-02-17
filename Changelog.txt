@@ -2,6 +2,7 @@ v1.1.2
 -Changed damage formatting to actually have a B where there was a g
 -Added beacon alert
 -Made every. single. gui. element. moveable.
+-Made VCB display work again, as the capitalization of the message changed
 
 v1.1.1
 -Changed damage formatting to be B,M,K formatting

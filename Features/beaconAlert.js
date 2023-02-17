@@ -7,7 +7,7 @@ register("step", () => {
     if(!skySim || !Settings.BeaconAlert) return
     World.getAllEntities().filter(filter => filter !== null && filter.getEntity() instanceof ArmorStand).forEach(e => {
         if(e.getEntity()?.func_82169_q(3)?.toString()?.includes("beacon") ?? false){
-            Client.showTitle("&dBEACON!", "", 0, 1, 0)
+            Client.showTitle("&dBEACON!", "", 0, 20, 0)
         }
     })
-}).setFps(3)
+}).setFps(10)
