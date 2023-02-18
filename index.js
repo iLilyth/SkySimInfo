@@ -19,6 +19,7 @@ import "./features/beaconAlert"
 
 //functions
 import "./Functions/locationFunction"
+import "./Functions/priceCheck"
 
 //trackers
 import "./trackers/bitsCounter"
