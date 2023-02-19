@@ -38,12 +38,37 @@ register("command", (arg1, arg2, arg3) => {
     else if(arg1=='uranium'){
         arg1 = uranium[arg2]
     }
-    //ChatLib.chat("pricecheck: " + arg1 + " (ore), " + arg2 + "(refinement tier), " + arg3 + "(quantity)")
     setTimeout(() => {
         ChatLib.say(nFormatter(arg1*arg3, 3))
     }, 1250);
-    
-    
-
-    //ChatLib.chat(arg1[arg2] * arg3)
 }).setName("pricecheck")
+
+
+register("command", (arg1, arg2, arg3) => {
+    if(arg1>2){
+        ChatLib.chat("Invalid tier; unenchanted=0, enchanted=1, compressed=2")
+    }
+    ChatLib.say("ore: " + arg1 + " refinement tier: " + arg2 + " bits goal: " + arg3)
+    arg2 = arg2--
+    if(arg1=='polonium'){
+        arg1 = polonium[arg2]
+    }
+    else if(arg1=='radium'){
+        arg1 = radium[arg2]
+    }
+    else if(arg1=='francium'){
+        arg1 = francium[arg2]
+    }
+    else if(arg1=='uranium'){
+        arg1 = uranium[arg2]
+    }
+    setTimeout(() => {
+        ChatLib.say(arg3/arg1 + "ores")
+    }, 1250);
+}).setName("pricechecktotal")
+
+register("command", () => {
+    ChatLib.chat("/PriceCheck (ore) (refinement, 0= raw, 1=enchanted, 2=compressed) (quantity)")
+    ChatLib.chat("")
+    ChatLib.chat("/PriceCheckTotal (ore) (refinement, 0= raw, 1=enchanted, 2=compressed) (Bits Goal)")
+}).setName("price")
